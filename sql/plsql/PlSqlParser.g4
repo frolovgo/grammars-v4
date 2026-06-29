@@ -31,8 +31,8 @@ options {
 // Insert here @header for C++ parser.
 
 sql_script
-    : (sql_plus_command  SEMICOLON?)* (
-        (sql_plus_command | unit_statement) (SEMICOLON '/'? (sql_plus_command | unit_statement))* SEMICOLON? '/'?
+    : (sql_plus_command  (SEMICOLON | SOLIDUS)?)* (
+        (sql_plus_command | unit_statement) ((SEMICOLON '/'? | SOLIDUS) (sql_plus_command | unit_statement))* (SEMICOLON '/'? | SOLIDUS)?
     ) EOF
     ;
 
